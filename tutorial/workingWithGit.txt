@@ -21,7 +21,7 @@ Terminologies:
 4) Alternatively, if the local repository already has some history,
 	git push -u origin [branchToBePushed] --force
 
-   	The -u flag sets the upstream for the branch so that later you can
+   	TThe -u flag sets the upstream for the branch so that later you can
 	push without specifying the remote repository again.
 
         Be aware that the --force flag will overwrite the remote git
@@ -53,7 +53,19 @@ Terminologies:
     add it to stage and then run:
 	git commit --amend
 
-    This will update the last commit by adding the stashed changes
+    This will update the last commit by adding the stashed changes. However, you will have to run some
+    additional commands to push to the upstream repository.
+
+	git reflog
+
+    This will give you the hash value for the amended and old commits, which will be denoted as new and old
+    respectively.
+
+  	git checkout old && git merge -s ours old
+  	git merge main
+  	git push . HEAD:main
+  	git switch -
+  	git push origin
 
 12) To list the git log as a graph:
 	git log --graph -all --decorate --oneline
