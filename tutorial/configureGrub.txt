@@ -3,7 +3,7 @@ Grub is the bootloader for linux kernels.
 It can be configured to detect new OS automatically and add boot entry to the
 OS upon rebooting.
 
-The grub config file can be found in /boot/grub/grub.cfg
+The grub config file can be found in /etc/default/grub
 
 After updating grub, run the following command to effect changes.
 	sudo update-grub
