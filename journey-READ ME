@@ -1,0 +1,91 @@
+Reminder: Visit Learn Linux to refresh on linux knowledge
+
+
+
+Event: Creating a shared partition between windows and linux
+	Note: PROCEED AFTER READING THE NOTE ON PARTITIONING
+
+	A partition to be shared by the different OSes should have
+	a filesystem which is common, or so I thought. Both OS
+	can recognise each other's filesystem.
+
+	The problem is that windows does not recognise partitions
+	created on linux. To remedy this situation, the desired
+	partition can be created directly on windows
+
+	Then, said partition can be mounted permanently to a
+	desired location on the linux OS by editing the
+	/etc/fstab file.
+
+	But first, you need to fetch relevant data from the
+	sudo blkid command
+
+	See the linux commands file for relevant commands
+
+
+Event: Adding more functionality to the shell
+	The shell can be improved by adding programs to the
+	/usr/bin directory.
+
+	Note that if a python script is being used, it must
+	be given the appropriate privilege to run using
+	the chmod +x command.
+
+	How this "magic" works is that /usr/bin is included 
+	in the $PATH environment variable, which is read by
+	the shell to locate binaries.
+
+	Note that the path added to $PATH should be a directory
+
+Event: Package management
+	This is a rather complicated part so will skip for now
+
+Event: Starting up a virtual machine
+	The most compatible type of virtual machine technology
+	is KVM/ Kernel Virtual Machine which is based on QEMU
+
+	Some packages will have to be installed related to
+	KVM first.
+	
+	After initial set-up, enable and start the libvirtd
+	daemon: sudo systemctl enable libvirtd
+		sudo systemctl start libvirtd
+	
+	For better screen view when launching a virtual OS:
+	virt-viewer --connect=qemu\\\system_something --domain-name win 10
+	
+Event: Switching distributions
+	NOTE: DO NOT USE DISTRIBUTIONS THAT ARE FREE IN THE
+	      SENSE THAT YOU WILL HAVE TO MANUALLY INSTALL
+	      THE DRIVERS FOR PERIPHERALS
+
+	READ RECOVERY INSTRUCTIONS BEFORE PROCEEDING
+
+	Mount iso and copy its contents to a formatted usb disk
+	Go to grub screen during boot-up
+	Find and load the usb drive and enable chainloading
+	before rebooting
+
+	ls                   // find available devices/blocks
+	set root=(HD0, gpt)  // change root to desired device
+	chainloader /efi/boot/grubx64.efi
+			     // chainload the usb
+	Note: For win system, the path may be different
+	      such as boot64.efi
+
+	boot
+
+	Refer to the second chapter of OS concepts to
+	understand some terms being used
+
+Event: Desktop Environments and Useful Applications
+	There are various desktop environments
+	and you can switch between them
+	
+	Some common ones: GNOME, KDE, Cinammon
+
+	Some useful apps:
+	-Joplin
+	-Guake (GNOME) or Yakuake (KDE)
+	-neofetch and htop (terminal)
+

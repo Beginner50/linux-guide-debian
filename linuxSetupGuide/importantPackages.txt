@@ -1,0 +1,63 @@
+The following will list some important packages for working with linux:
+
+1) VS code
+   A no-brainer package for any linux distro. If on debian, add the official repository to
+   the package manager's source list.
+
+   sudo apt install code 
+
+2) MySql
+   Mysql database for working with databases. MySql server installs all necessary dependecies.  
+
+   	sudo apt install mysql-server
+   
+   	Start the mysql service:
+   	sudo systemctl start mysql 
+
+   Enter mysql and execute the following line: (Modify passwordHere with your password accordingly)
+   	ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'passwordHere'
+
+   sudo mysql_secure_installation
+   sudo mysql -u root -p (If password has not been set, omit the -p option)
+
+   UNINSTALL:
+   sudo apt-get remove --purge mysql-server mysql-client mysql-common
+   sudo apt-get autoremove && sudo apt-get autoclean
+
+   mysql requires further installation guidance, which will be discussed in the pertinent text file.
+
+3) neofetch and htop
+   Conveniently displays PC information and Process Control
+
+4) Python latest source code
+   Download python source code from the website and follow the procedures for compiling it.
+
+   Note: Python dependencies will need to be installed via apt-get
+
+5) Monero (wallet + gui)
+
+6) woeusb-ng (+gui) + balena-etcher
+	For creating windows insallation media
+	For creating linux installation media
+
+7) gpg-id for git (Follow installation guide on the repo)
+   On the same page, run the following commands:
+	git config --global user.email "your@example.com"
+	git config --global user.name "Your Name"
+
+8) Yakuake (Drop down terminal for kde-DE)
+
+9) qdcomp
+   Front-end for gcc frontend for c++
+
+10) zoxide
+    Smarter alternative to cd
+
+11) tlp
+    Maximise laptop battery life with tlp
+    Start the tlp service:
+
+    sudo tlp start
+
+    Edit the configuration files accordingly in /etc/tlp.conf
+

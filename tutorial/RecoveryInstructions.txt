@@ -1,0 +1,16 @@
+WARNING: DO NOT HEED THE FOLLOWING ADVICE UNLESS IT IS ABSOLUTELY NECESSARY
+
+Step 1) Format all hard drive partitions and make sda2 partition the EFI boot master partition (bootloader)
+
+Step 2) Run sudo grub-install something/sda2
+
+Step 3) Restart PC and enter the grub command line
+
+Step 4) Load a live USB from the bootloader
+        (Check for partitions using ls command)
+
+Step 5) set root=(something,something)
+
+Step 6) Chainloader
+
+Step 7) Boot

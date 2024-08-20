@@ -1,0 +1,65 @@
+The following is a guide on how to set up an environment for installing a linux distro:
+Note: This is for dual-boot users. It is more preferable to install linux debian on a clean drive
+      without a prior windows installation as the windows boot manager can mess things up by not
+      showing debian (or any other linux distro) as a boot entry. Plus, sometimes the UEFI can
+      also fuck up as well if an nvme pci-e ssd is used (See the section on nvme_UEFI.txt for more)
+
+1) Format a hard disk or SSD
+   Run,
+   sudo fdisk /dev/deviceName
+
+   Create new GPT partition table (MBR is deprecated as UEFI is more suitable for GPT)
+   Save and close
+
+2) Install the distro on a USB drive
+   Format the USB drive:
+   sudo dd if=/dev/null of=/dev/usb -bs=512
+   sudo fdisk /dev/usb and create a new MBR partion table
+
+   Use a tool like rufus or mount the iso file and copy its contents on the usb drive
+   sudo dd if=/mountPoint of=/dev/usb -bs=512
+
+3) Restart the computer and go the UEFI menu and select Boot Options and change the boot order
+   to the usb
+
+3.5) If the UEFI menu cannot be accessed, go to the GRUB screen and follow the instructions listed
+     on the relevant file in this directory.
+
+NOTE: Before running the installer on the USB, use a LAN connection as some distros do not come with
+      the WLAN driver/firmware pre-installed.
+
+4) Partition the installation media accordingly and if the installer does not automatically create a
+   swap partition, the user will have to create it manually later.
+
+4.5) If the grub boot loader cannot be found and you are redirected to the grub screen,
+     follow these steps:
+     A) Locate the partition of the root filesystem
+     B) set root=(ex1,par5)
+        set prefix=(ex1,par5)/boot/grub
+     C) insmod normal
+	normal	
+
+4.9) By proceeding through the standard debian installation, the user may not necessarily get root
+     privileges right away. Instead, they will need to run the following commands first:
+
+  	su
+	sudo visudo
+	
+     From there on, replace root in 
+			    root ALL=(ALL:ALL) ALL 
+     with the username to bestow upon root privileges
+
+5) After the kernel has been set-up without any problems and the desktop environment has been installed,
+   check all device drivers using the following command:
+
+   sudo lspci
+
+   Cross-check if device drivers have been installed on the system. If that is not the case, install
+   them manually by following the corresponding instructions on a relevant file in this repository. 
+
+6) Install the packages listed on the relevant file in this repository.
+
+7) Installing python packages:
+   Note that the traditional pip install may not work. Instead, the pipx package should be installed and
+   from there, replace pip or pip3 with pipx to install the required package.
+

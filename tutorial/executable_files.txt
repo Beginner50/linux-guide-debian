@@ -1,0 +1,17 @@
+-----------------------------------------------------------------------------
+By default, executable files will not be executed unless their permissions
+have been changed
+
+To make a file/script executable: chmod +x (absolute path of script)
+
+Note: Do not include . at the beginning of the path, else it will turn the
+path into a relative path
+
+
+Simply writing the path in bash should therefore execute the script
+-----------------------------------------------------------------------------
+
+To create a shortcut of the exec file, simply create a symbolic link like so:
+ln -s [abs path of file] [shortcut name]
+
+

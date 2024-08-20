@@ -1,0 +1,93 @@
+Package Managers:
+
+-apt and apt-get:
+	apt and apt-get have similar functionality.
+	However, apt is often more extensive than apt-get and it is
+  	therefore recommended to use apt instead of apt-get
+
+	Detailed Descriptions:
+	  apt:
+	    No information available but essentially a superior version
+	    of apt-get.
+
+	  apt-get:
+	    apt-get is a command line interface for retrieval of packages
+ 	    and information about them from authenticated sources and
+	    for installation, upgrade and removal of packages together
+            with their dependencies.
+
+Installing Third Party Packages (deb or PPA):
+
+	-PPA: PPA is an acronym for Personal Package Archive
+
+	   PPA are third party repositories that are not part of the
+	   official repositories.
+
+	  1) To add a PPA repository, run the following command:
+		sudo add-apt-repository ppa:[name of PPA] 
+
+	  2) To install a third party package from that PPA:
+		sudo apt update   {searches for latest package updates}
+		sudo apt install [PPA Package]
+
+	  3) To remove a package and its corresponding PPA:
+		sudo remove [package name]
+		sudo add-apt-repository -remove ppa:[name of PPA]
+
+
+	-deb: deb stands for debian executables
+
+	   debian executables are third party packages that can be
+	   installed from the web
+
+	      1) INSTALLATION
+	        A) UBUNTU
+		sudo apt deb ./[path to debian file]
+
+		NOTE: It is important to specify ./ or else
+		      the package will be installed from the web.
+
+		B) DEBIAN
+		sudo dpkg -i /path/to/deb/file
+		sudo apt install -f
+
+	      2) REMOVAL
+		Removing a debian package is cumbersome.
+
+		This involves searching for the package:
+	   	sudo dpkg -l | grep "PackageName"
+
+		Then, delete the package along with its dependencies:
+		sudo dpkg --purge PackageName
+
+		Run the apt autoremove command:
+		sudo apt-get autoremove
+		sudo apt-get autoclean
+
+		For additional cleanup, remove the Package's etc file:
+		sudo rm -rf /etc/PackageName
+
+
+Method 2: Installing second-and-third party repositories:
+	Configure the /etc/apt/sources.list file with root privileges and add the repository of your choice.
+	
+	Consult the debian unofficial repositories website for more info
+
+Method 3: Using AppImage
+	AppImage are universal and convenient way of installing and running applications on linux.
+
+	Essentially, they are a compressed image with all the dependencies and libraries needed to run
+	the software; implying that they can be run on any distribution
+
+	They also offer security benefits as they do not require root privileges to execute and are thus
+	safer than the conventional apt install commands.
+
+	See https://itsfoss.com/use-appimage-linux/ for more information on AppImages
+
+	-Usage:
+		Change the permission of the AppImage, chmod +x sample.appimage
+		Run i, ./sample.appimage
+	
+	
+	-Removing:
+		Removing an appimage is also simple, simply remove the AppImage	

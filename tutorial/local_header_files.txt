@@ -1,0 +1,4 @@
+cd /usr/local/include
+
+Move the desired header file to this location to make it
+accessible system wide for the current user.

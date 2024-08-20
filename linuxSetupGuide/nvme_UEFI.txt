@@ -1,0 +1,5 @@
+My UEFI seems to be incompatible with the nvme ssd drive. The issue pertains to it not locating the
+bootup files on the EFI partition or rather it not being to locate said partition.
+
+To resolve such problem, I have to manually create a boot entry for each OS to boot from and DELETE the
+automatically generated ones.

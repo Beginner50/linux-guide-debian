@@ -1,0 +1,10 @@
+Install kvm first:
+sudo apt install qemu-system libvirt-daemon-system virt-manager
+
+Then add the current user to the libvirt group:
+sudo adduser prashant libvirt
+
+Start the virt-manager to manage VMs
+
+To use virt-viewer:
+	virt-viewer --connect=qemu:///system --domain-name win10

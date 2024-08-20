@@ -1,0 +1,5 @@
+Be sure to re-enable the PCI Device for the GPU through powertop before
+running the command.
+
+To use the dedicated GPU to run an application:
+	DRI_PRIME=1 ./programName
