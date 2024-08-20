@@ -1,0 +1,57 @@
+------------------------------------------------------------------
+			GENERAL COMMANDS
+
+
+cat - Cat prints the content of a file to stdout
+	It may also allow us to write text into a file
+
+redirection operator(>) v/s pipe operator(|) -
+	The > operator allows us to change where the stdout goes to
+	The | operator redirects the stdout of a command to a program
+
+	E.g ls > dir.txt && grep Py < dir.txt
+	    is same as
+	    ls | grep Py
+	    except dir.txt is not created
+
+
+-------------------------------------------------------------------
+			Device Commands
+		  (inc mem, CPU, peripherals)
+
+1) lsblk
+Lists all devices (including their partitions) currently detected by the computer
+
+2) df -h
+List all partitions currently mounted on the computer, including their size, filesystem
+
+3) sudo blkid
+Lists all filesystems about partitions
+
+4) sudo fdisk -l
+List all partitions detected, including their start and end positions as well as
+the purpose each one of them serves
+
+5) lspci
+Lists all peripheral devices without getting the specifics of what the devices represent
+Use lspci -v for that
+
+6) lscpu
+List all details about the CPU
+
+7) free -h
+List details over how much memory is available and in use
+
+8) neofetch
+Do I have to explain what it does?
+
+---------------------------------------------------------------
+ 			Useful Commands
+
+1) dd
+It copies blocks of bytes from a storage device
+
+Usage: dd if=path/to/input/file of=path/to/output/folder bs=1024
+
+	bs - block size
+

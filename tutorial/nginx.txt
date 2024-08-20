@@ -1,0 +1,33 @@
+Nginx is primarily used as an http server to serve http requests from other
+hosts within the same subnetwork.
+
+To install nginx:
+	sudo apt install nginx-full
+
+To enable and run nginx service:
+	sudo systemctl enable nginx
+	sudo systemctl start nginx
+
+Edit html pages in directory: /var/www
+
+Then create a text file named nginxweb within /etc/nginx/sites-enabled/
+directory:
+	sudo vi /etc/nginx/sites-enabled/nginxweb
+
+Copy paste the following in the file & replace public ip with your actual ip
+address:
+
+server {
+       listen 80;
+       listen [::]:80;      
+       server_name www.example.com example.com;
+       server_name <your_public_IP>; 
+      root /var/www/nginxweb;
+       index index.html;       location / {
+               try_files $uri $uri/ =404;
+       }
+}
+
+To disable nginx:
+	sudo systemctl stop nginx
+	sudo systemctl disable nginx

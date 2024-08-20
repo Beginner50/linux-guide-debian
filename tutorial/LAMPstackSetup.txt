@@ -1,0 +1,74 @@
+LAMP stands for Linux, Apache, MySql, PHP
+
+1) To set up the lamp stack, first install apache web server
+	sudo apt install apache2
+
+2) Enable and then list available applications in the firewall
+	sudo ufw enable
+	sudo ufw app list
+	
+	Output
+	Available applications:
+	Apache                             // Opens only in port 80
+	Apache Full			   // Opens both in port 80 & 443
+	Apache Secure                      // Opens only in port 443
+
+3) Allow traffic from apache (Apache for port 80 only or Apache Full/Secure for port 443)
+	sudo ufw allow in "Apache"
+
+4) List the status of the firewall
+	sudo ufw status
+
+5) Install mysql-server
+	sudo apt install mysql-server
+
+6) Set up a password for the root user
+	sudo mysql 									// Enter mysql
+	ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY ' ';	// Sets up a password ' ' for root
+	
+7) Run mysql_secure_installation
+	sudo mysql_secure_installation
+
+8) Install PHP
+	sudo apt install php libapache2-mod-php php-mysql
+
+9) Configure Apache
+   The apache directory structure is different from httpd.conf file in XAMPP. Refer to apache docs for this but the
+   core functionality remains the same as XAMPP.
+
+   After saving changes, restart apache
+	sudo systemctl restart apache2
+
+10) Install some useful php extensions
+	apt search php- | less  			// Lists php extensions
+	sudo apt install php-cli			// Install php interactive shell
+
+11) Configure a virtual host for your website
+    Virtual hosts allow hosting for more than one domain (website) from a single server.
+    It is advisable create domains in /var/www since /var/www/html will be the default directory to be served in
+    case your domain is not set up correctly.
+
+    	sudo mkdir /var/www/yourDomain
+    	sudo chown -R root:prashant /var/www/yourDomain
+
+    Then, create a new configuration file in Apache's sites-available directory with the following default contents
+    	sudo vim /etc/apache2/sites-available/yourDomain.conf
+
+    	<VirtualHost *:80>
+    	ServerName your_domain
+    	ServerAlias www.your_domain
+    	ServerAdmin webmaster@localhost
+    	DocumentRoot /var/www/your_domain
+    	ErrorLog ${APACHE_LOG_DIR}/error.log
+    	CustomLog ${APACHE_LOG_DIR}/access.log combined
+    	</VirtualHost>
+
+    To enable new virtual host & disable default website from Apache:
+	sudo a2ensite yourDomain
+	sudo a2ensite 000-default
+
+    Reload apache2
+	sudo systemctl reload apache2
+
+12) Read more on https://www.digitalocean.com/community/tutorials/how-to-install-lamp-stack-on-ubuntu
+

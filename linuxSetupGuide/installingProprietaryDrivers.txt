@@ -1,0 +1,37 @@
+By default, debian versions prior to bookworm do not come pre-installed with proprietary harware blobs.
+Ex: Missing gpu and network adapter drivers
+
+It is recommended to start the installation process of debian with a LAN connection as this will enable
+you to download a Desktop Environment on a bare minimun debian iso install.
+
+Here are some of the following steps in installing proprietary firmware on your machine:
+
+Method 1: Using firmware available on the official repository
+	Firstly, find which devices are missing their firmware (You can check devices available using
+	the lspci command which lists all peripherals)
+
+	You might want to edit the sources.list for the apt package manager and append non-free to
+ 	every line starting with deb to access the non-free repositories.
+
+	Then, run the following command:
+	sudo apt-get update && sudo apt-get install firmware-linux-nonfree
+	
+	This will generate a new ramdisk (initramfs), essentially a temporary filesystem
+	used to mount the necessary firmware during startup
+
+	Then, reboot the system
+
+Method 2: Installing firmware manually
+	First, install the apt-file package:
+	apt-get install apt-file
+
+	Run the following commands to find the firmware required:
+	apt-file update
+	apt-file search --package-only /lib/firmware
+
+	Locate the packages on the official debian site: packages.debian.org
+	Install them:
+	dpkg -i firmware-something.deb
+
+Method 3: Prior to beginning the installation process, download the firmware tar.gz file from the official
+	  website and extract it on the firmware directory on the installation media.

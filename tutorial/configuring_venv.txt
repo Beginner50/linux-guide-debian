@@ -1,0 +1,15 @@
+I have managed to get shebang to work in python:
+
+1) Add the virtual environment path to the shebang like so:
+   #!/home/prashant/Desktop/Pygame_basics_1/.venv/bin/python3.10
+
+2) Now, the python script should NOT be run with python as using python
+   in bash defaults to it using the global interpreter path, which is
+   unwanted as we need to use the symlink instead
+
+3) Instead, elevate the status of the python script like so:
+   chmod +x main.py
+
+4) Then, run the script
+   ./main.py
+

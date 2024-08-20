@@ -1,0 +1,42 @@
+The EFI partition holds the bootloaders for operating systems as well as
+critical system utilites and applications that can be run from the UEFI
+firmware.
+
+	E.g Firmware drivers (system utilities) & grubx64.efi (bootloader)
+
+Sometimes the EFI partition needs to be resized to accomodate new OSes.
+Unfortunately, it cannot be resized and will have to be recreated instead.
+
+Step 1: Back up the contents of the EFI partition after mounting it
+	
+	sudo mount /dev/nvmen1p1 /mnt
+	sudo rsync -av /mnt ~
+
+Step 2: Unmount the EFI partition at /boot/efi
+
+Step 3: Open parted (Or gdisk which is more cumbersome)
+	
+	sudo parted /dev/nvmen1
+
+Step 4: Note down the start and end (optional) sectors
+	
+	unit s print
+
+Step 5: Recreate the EFI partition
+	
+	rm 1 (where 1 is the EFI partition)
+	mkpart primary fat32 2048s endSector
+	set 1 esp on
+	exit
+
+Step 6: Format the EFI partition before restoring data on it
+	
+	sudo mkfs.fat -F 32 /dev/nvmen1p1
+
+Step 7: Find the UUID of the EFI partition and modify /etc/fstab accordingly
+
+	sudo blkid | grep EFI
+	sudo vim /etc/fstab
+
+Optional: Mount the EFI partition and check its size using
+	df -h --out=size /mnt

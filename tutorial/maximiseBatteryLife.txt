@@ -1,0 +1,22 @@
+To maximise battery life for linux, the following tools are needed
+	powertop
+	tlp tlp-rdw
+
+1) Install tlp and tlp-rdw since powertop is already installed by default
+	sudo apt install tlp tlp-rdw
+
+2) Start the tlp service
+	sudo tlp start
+
+3) Optionally, you can configure the tlp config at /etc/tlp.conf and run tlp
+start to load new configs.
+
+4) Callibrate your battery with powertop (Screen might turn off/dim in the
+process)
+	sudo powertop --calibrate
+
+5) Disable the dedicated GPU through powertop by opening powertop and
+navigating to the tunable section. There, toggle the PCI device for your
+graphics card.
+
+Warning: You have to manually re-enable GPU if you want to use the GPU

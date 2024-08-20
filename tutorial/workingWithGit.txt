@@ -1,0 +1,68 @@
+Git is a version control system essential for working with changing codebases.
+
+Terminologies:
+	Upstream - This refers to the main branch from which a given branch was branched off of
+		   and to which it may eventually push changes to.
+
+		   By default, git uses "origin" as the remote name for the upstream repository.
+
+1) To start, create a git repository and check out its status & log
+	git init
+	git status
+	git log
+
+2) It is advisable to link this local repository to a remote one (e.g github repo)
+	git remote add origin [githubURL]
+
+3) Then synchronise by pulling the contents of that remote repository
+	git pull origin
+
+
+4) Alternatively, if the local repository already has some history,
+	git push -u origin [branchToBePushed] --force
+
+   	The -u flag sets the upstream for the branch so that later you can
+	push without specifying the remote repository again.
+
+        Be aware that the --force flag will overwrite the remote git
+	repository.
+
+5) Files need to be added and commited for them to be saved as a version
+	git add . && git commit -m "messageHere"
+
+6) Update the remote repository with the files from the local one
+	git push origin main
+
+7) It is better to create a new branch when working with multiple git users in
+   a single repository.
+	git branch [branchName] [Optional: commitHash]
+
+8) To navigate to the branch created
+	git switch [branchName]
+
+9) To navigate back to the branch before checkout out another branch
+	git switch -
+
+10) Delete an unwanted branch using
+	git branch -d [branchName]
+
+    To delete a remote branch:
+	git push origin --delete [remoteBranchName]
+
+11) In case you made a commit & forgot to include an important file/change,
+    add it to stage and then run:
+	git commit --amend
+
+    This will update the last commit by adding the stashed changes
+
+12) To list the git log as a graph:
+	git log --graph -all --decorate --oneline
+
+13) To set up a git command alias
+	git config --global alias.[aliasName] "aliasCommandHere"
+
+14) To merge a branch
+	git merge [branchName]
+	git merge --abort
+
+    The second command aborts the merge in case of a conflict

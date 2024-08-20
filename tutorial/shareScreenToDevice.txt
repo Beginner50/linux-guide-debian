@@ -1,0 +1,11 @@
+1) Install VNC viewer in the android device
+2) Install a VNC server software on your laptop (x11vnc)
+3) Set up a password:
+    x11vnc -storepasswd PASSWORDHERE /etc/x11vnc.pass
+4) Start the vnc server
+    x11vnc -display :O
+5) On the android device, add the ip address of the VNC server/ host machine
+    along with port 5900
+    
+Note: This method has some flaws; the main one being that it consumes bandwidth
+      and the second one is that it is difficult to use.

@@ -1,0 +1,64 @@
+Partitioning is an extremely important and versatile tool that allows for effective use of the HDD or SSD
+for dual-booting, cross-platform file storage, etc
+
+Before we learn how partitioning works, it is vital to understand the underlying concepts:
+
+1) BIOS and UEFI
+The BIOS/ Basic Input Output System is a bootstrap program stored in ROM and is used 
+to carry out POST and load the boot loader.
+
+It is now treated as a legacy firmware interface
+
+UEFI, an acronym for Unified Extensible Firmware Interface is now the new standard
+which supports GUI and is stored in EEPROM.
+
+Another way the UEFI differs from the BIOS is that it stores all initialisation
+and startup data in an .efi file instead on the actual firmware. This .efi file
+is in turn stored in the EFI system partition.
+
+=======================================================================================
+
+2) Partioning Schemes/ Partition Tables:
+-----------------------------------------------------------------
+	Q) What is a partitioning table?
+	   A partition table tells the system how a disk is partitioned.
+	
+	   E.g: It tells you where partitions begind and end, which
+     		partitions are bootable, what sectors of the disk are
+     		allocated to what partition, etc
+-----------------------------------------------------------------
+
+A) MBR
+The Master Boot Record is a legacy partition table/scheme that
+has a limit of 4 partitions and supports disks up to 2tb
+
+B) GPT
+The GUID Partitioning table is the new standard when it comes
+to partitioning and is used in conjunction with UEFI based booting
+
+==========================================================================
+
+3) Filesystem Structure
+-----------------------------------------------------------------
+A) Boot Block
+	The boot block is usually located in the first few sectors of the
+	filesystem and not really used by the filesystem
+
+	It contains information used to boot the OS
+
+	Multiple partitions have multiple boot blocks but many of them
+	are unused
+
+B) Super Block
+	This is a single block that comes after the boot block and it
+	contains information about the filesystem, such as the size
+	of the inode table, size of logical blocks and size of the 
+	filesystem
+
+C) Inode Table
+	This acts like a database thath manages files
+
+D) Data Blocks
+	This is the actual data for files and directories
+
+================================================================================

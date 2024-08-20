@@ -1,0 +1,10 @@
+1) Open Developer settings and enable USB debugging
+2) Install ADB (Android debug bridge) from your package manager
+2.5) Listen to usb (adb usb)
+3) Follow the steps for install scrcpy from github
+4) Listen to port 5555 using ADB
+    adb tcpip 555
+5) Connect to the private IP of the device
+    adb connect 192.168.x.x:5555
+6) Run scrcpy -e to connect to the device using tcpip protocol
+   OR -d to device using usb protocol

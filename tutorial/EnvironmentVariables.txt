@@ -1,0 +1,23 @@
+Environment variables can be accessed system-wide
+
+PATH: The PATH environment variables allow execution of files system wide using only their filenames
+      Any files (executable files) which lie in a directory that is included in the PATH
+      environment variable can also be executed using only their filenames.
+
+      (P.S. Make sure the file is a valid executable and has executable permission on)
+
+      Use Case: Custom commands such as Neofetch are stored in the /usr/bin directory
+	        which is included in the PATH
+
+		This makes it accessible system-wide
+
+      Or, the PATH can also be modified to include a directory/file outside those
+      already listed in the path
+
+      To add a directory to the PATH,
+	export PATH=$PATH:/your/new/path/here
+	
+      To remove a directory from the PATH:
+	ALWAYS ADD NEW PATH AT THE END OF THE ORIGINAL PATH TO MAKE IT EASIER TO
+	REMOVE.
+	export PATH=[PATH without the paths you want to remove]	

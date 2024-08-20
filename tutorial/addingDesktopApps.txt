@@ -1,0 +1,11 @@
+1) vim ~/.local/share/applications/APPNAME
+2) The file should be in the following format 
+   [Desktop App] 
+   Name=Appname (Correspond to package name)
+   GenericName=COOLAPPNAME
+   Exec=/bin/sh -c '"SHELL" -i -c APPNAME'
+   Icon=ICONAME (Correspond to image of icon in ~/.local/share/icons)
+   Terminal=False
+   Type=Application
+   Categories=Category1;Category2
+   StartupNotify=false

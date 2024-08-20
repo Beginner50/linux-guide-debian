@@ -1,0 +1,13 @@
+Dual booting windows with linux can cause the local time to be out of sync.
+
+This problem can arise when the OSes confuse what time is stored in the BIOS clock. Linux considers it as UTC whilst windows considers it as local time
+(UTC+4).
+
+Dual booting can mess up the local time on both systems; hence, it is important
+to synchronise both system's interpretation of the information in the
+BIOS clock.
+
+The following can be done by first adjusting the time on the linux machine
+to local time and then running the command:
+
+	timedatectl set-local-rtc 1
