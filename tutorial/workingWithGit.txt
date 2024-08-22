@@ -17,6 +17,11 @@ Terminologies:
 3) Then synchronise by pulling the contents of that remote repository
 	git pull origin
 
+   If your branch is not up-to-date with the upstream and you have made some changes
+   you want to keep, then stash those changes and then pull from upstream.
+	git stash
+	git pull origin
+	git stash pop
 
 4) Alternatively, if the local repository already has some history,
 	git push -u origin [branchToBePushed] --force
@@ -78,3 +83,17 @@ Terminologies:
 	git merge --abort
 
     The second command aborts the merge in case of a conflict
+
+15) If you want to contribute to another repository, you need to first fork it, clone the forked repo, create a 
+    separate branch and add the original repo as the upstream repo
+
+	git fork [originalRepoURL]
+	git clone [forkedRepoURL]
+	git branch -b [newBranch]
+	git remote add [upstream] [originalRepoURL]
+	git switch [newBranch]
+	[Add commit to branch]
+	git push [upstream] [newBranch]
+
+    Note that the original repo should allow anyone to create/delete branches.
+
