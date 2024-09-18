@@ -1,0 +1,47 @@
+This section will mainly document and illustrate how to use libraries in sqlite:
+
+External libraries can be used in 2 ways:
+- Either by providing the source code to the compiler
+- Or providing a pre-compiled binary file to the linker
+
+Case 1: Compiling along source code
+	This is the simplest way of using libraries
+	gcc main.c lib.c
+
+Case 2: Linking pre-compiled binary
+	Now, it is important to distinguish between 2 types of pre-compiled library files:
+	static library - lib.a
+	shared library - lib.so
+	
+	1) Static libraries are created by archiving the *.o files with ar program:
+
+	   # Create the object files (only one here)
+	   g++ -c lib.cpp
+
+	   # Create the archive (insert the lib prefix)
+	   ar rcs lib.a lib.o
+
+	2) Shared libraries are created with the g++ -shared option:
+	   
+   	   # Create the object file with Position Independent Code[**] 
+	   g++ -fPIC -c lib.cpp
+
+	   # Create the shared library (insert the lib prefix)
+	   g++ -shared -o lib.so lib.o
+
+	3) Linking the libraries:
+	   
+	   g++ main.cpp -L. -llib
+	   
+ 	   The -L flag tells the linker where to search for library files and -l flag
+	   tells the linker the name of the libraries to be used without the prefix.
+
+	4) Additional Note
+	   Since the shared library is loaded at runtime, the execution of the program
+	   may fail since the system is not able to find the library. This can be solved
+	   by configuring the environment variables to specify paths to search for dynamic
+	   libraries in the terminal:
+		
+	   export LD_LIBRARY_PATH=[PATH_TO_LIBRARY];	
+
+	
