@@ -1,10 +1,16 @@
-Be sure to re-enable the PCI Device for the GPU through powertop before
-running the command.
+This information is dedicated for machines with AMD GPUs although some of the knowledge may
+be applied to NVIDIA GPUs as well.
 
-To use the dedicated GPU to run an application:
-	DRI_PRIME=1 ./programName
+1) Using a dedicated GPU
+	DRI_PRIME=1 {file}
 
-For AMD GPUs, installl the radeontop package
-	sudo apt install radeontop
+ 	Note: Be sure to re-enable the PCI Device for the GPU through powertop before running the command.
 
-It shows the utilization of the AMD GPUs
+2) Monitoring
+   For monitoring, it is recommended that you install the radeontop package as well as mesa-utils.
+   The radeontop package simply monitors the usage of the AMD GPU
+
+	sudo apt install radeontop mesa-utils
+
+   Then, open radeontop and run glxgears in another terminal using the dedicated graphics processor
+
