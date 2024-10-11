@@ -55,3 +55,13 @@ Usage: dd if=path/to/input/file of=path/to/output/folder bs=1024
 
 	bs - block size
 
+2) chmod
+It is used to change the permissions of a file
+	chmod 777 file
+
+3) chown
+It is used to change the ownership of a file
+	sudo chown 'root'@'${username}' file
+
+	This changes the file owner to root and ${username}
+

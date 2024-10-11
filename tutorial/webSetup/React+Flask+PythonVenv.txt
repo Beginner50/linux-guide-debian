@@ -1,0 +1,74 @@
+-----------------------------------------------------------------------------------------------------
+			Setting up virtual environments in python
+
+Virtual environments vs docker container
+	- A virtual environment only encapsulates python dependencies whereas a docker
+	  container encapsulates the entire OS.
+
+	This is useful when the docker container contains multiple python venv for some
+	reason because if only venv is used, non-python dependencies might still conflict
+	with one another.
+
+	In this case, docker is needed to provide this encapsulation.
+
+1) Setting up a python virtual environment
+	Navigate to the python project
+		python3 -m venv venv
+
+	What this command does is create a new python binary that utilises new environment
+	variables, essentially encapsualating python for this project. 
+
+2) Activate the python virtual 
+		source venv/bin/activate
+
+	This will look for the python binary within the project directory and run it in
+	the current shell.
+
+3) Install dependencies
+	pip install flask python-dotenv
+
+------------------------------------------------------------------------------------------------------
+				Setting up Flask
+1) In the project directory (React or other), create an API folder and in the folder, create the
+   python virtual environment
+
+2) Activate the virtual environment and create a .flaskenv file with the following
+	FLASK_APP=api.py
+	FLASK_ENV=development
+
+   FLASK_APP automatically tells Flask to import api.py
+   FLASK_ENV enables Flask's debug mode
+
+3) Run flask
+	flask run
+
+----------------------------------------------------------------------------------------------
+				Setting up React
+
+1) First install nodejs(Installed by default on linux)
+
+2) Create the React project
+	npm create vite@latest
+	
+	Chose the right settings for React
+
+3) Inside the project, install the dependencies and run it
+	npm install
+	npm run dev
+
+----------------------------------------------------------------------------------------------
+				Configuring React with Flask
+
+1) Set up the proxy redirection from React to Flask by editing the package.json file
+	{
+		...
+		"proxy": "http://localhost:5000"
+	}
+
+	Since React will run a webserver on port 3000 and Flask on port 5000. React is
+	configured to redirect any requests it receives on port 3000 that it does not
+	understand into another server.
+
+	Note: Normally this is not required since the frontend files and API endpoints
+	      are all served from the same domain and port (avoid CORS issues)
+	

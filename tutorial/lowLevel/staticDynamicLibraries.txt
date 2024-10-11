@@ -1,5 +1,6 @@
 This section will mainly document and illustrate how to use libraries in sqlite:
 
+
 External libraries can be used in 2 ways:
 - Either by providing the source code to the compiler
 - Or providing a pre-compiled binary file to the linker
@@ -45,3 +46,6 @@ Case 2: Linking pre-compiled binary
 	   export LD_LIBRARY_PATH=[PATH_TO_LIBRARY];	
 
 	
+Additional Note:
+      /usr/local/include
+      Move the desired header file to this location to make it accessible system wide for the current user.
