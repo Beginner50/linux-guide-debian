@@ -3,3 +3,8 @@ running the command.
 
 To use the dedicated GPU to run an application:
 	DRI_PRIME=1 ./programName
+
+For AMD GPUs, installl the radeontop package
+	sudo apt install radeontop
+
+It shows the utilization of the AMD GPUs

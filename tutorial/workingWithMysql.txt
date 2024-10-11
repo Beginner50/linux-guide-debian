@@ -1,0 +1,9 @@
+Mysql set-up
+	See LAMPStackSetup.txt for setting up user auth & password
+
+1) Show databases in the system
+	SHOW DATABASES;
+
+2) Create a database
+	CREATE DATABASE [DBNAME];
+

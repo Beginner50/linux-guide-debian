@@ -45,6 +45,9 @@ LAMP stands for Linux, Apache, MySql, PHP
 
 11) Configure a virtual host for your website
     Virtual hosts allow hosting for more than one domain (website) from a single server.
+    Whenever a website has an actual hostname and is hosted over the internet, Apache will look in the HTTP header
+    sent by the packet on port 443/80 and determine which website the client is requesting.
+
     It is advisable create domains in /var/www since /var/www/html will be the default directory to be served in
     case your domain is not set up correctly.
 
@@ -65,10 +68,29 @@ LAMP stands for Linux, Apache, MySql, PHP
 
     To enable new virtual host & disable default website from Apache:
 	sudo a2ensite yourDomain
-	sudo a2ensite 000-default
+	sudo a2dissite 000-default
 
     Reload apache2
 	sudo systemctl reload apache2
 
-12) Read more on https://www.digitalocean.com/community/tutorials/how-to-install-lamp-stack-on-ubuntu
+12) Enable SSL
+	1) First generate a self-signed certificate
+	   Do not that the website will still not be secure since certain web browsers do not trust self-signed certificates.
+	   Additionally, make sure that the servername is set to your server name or ip address
+
+	   sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
+
+	2) Then, configure SSL in Apache
+	   sudo vim /etc/apache2/sites-available/default-ssl.conf
+
+	   SSLCertificateFile /etc/ssl/certs/apache-selfsigned.crt
+	   SSLCertificateKeyFile /etc/ssl/private/apache-selfsigned.key
+
+	3) Enable the SSL module
+	   sudo a2enmod ssl
+	   sudo a2ensite default-ssl
+
+	4) Restart Apache
+
+13) Read more on https://www.digitalocean.com/community/tutorials/how-to-install-lamp-stack-on-ubuntu
 

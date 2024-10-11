@@ -26,7 +26,7 @@ Terminologies:
 4) Alternatively, if the local repository already has some history,
 	git push -u origin [branchToBePushed] --force
 
-   	TThe -u flag sets the upstream for the branch so that later you can
+   	The -u flag sets the upstream for the branch so that later you can
 	push without specifying the remote repository again.
 
         Be aware that the --force flag will overwrite the remote git
@@ -85,15 +85,13 @@ Terminologies:
     The second command aborts the merge in case of a conflict
 
 15) If you want to contribute to another repository, you need to first fork it, clone the forked repo, create a 
-    separate branch and add the original repo as the upstream repo
+    separate branch, commit changes in the branch, push it upstream to forked remote and then create a pull request
+    on github. 
 
-	git fork [originalRepoURL]
-	git clone [forkedRepoURL]
-	git branch -b [newBranch]
-	git remote add [upstream] [originalRepoURL]
-	git switch [newBranch]
-	[Add commit to branch]
-	git push [upstream] [newBranch]
+16) Assuming that you have already made a commit to the local repo before detecting new commits from upstream, then
+    you need to rebase your new commit(s) on top of the ones from the remote.
 
-    Note that the original repo should allow anyone to create/delete branches.
-
+	git pull --rebase
+ 
+    If a merge conflict is detected, resolve them and continue
+	git rebase --continue
