@@ -42,6 +42,13 @@ Virtual environments vs docker container
 3) Run flask
 	flask run
 
+Optional: 
+	Test flask api endpoint using python
+	venv/bin/python3 api.py/
+
+	Open up the web browser and append the correct endpoint to the URL
+	
+
 ----------------------------------------------------------------------------------------------
 				Setting up React
 
@@ -72,3 +79,7 @@ Virtual environments vs docker container
 	Note: Normally this is not required since the frontend files and API endpoints
 	      are all served from the same domain and port (avoid CORS issues)
 	
+2) Start both the flask and react servers
+
+
+NOTE: The frontend(React) and the backend(Flask) should be in 2 completely separate directories
