@@ -1,0 +1,17 @@
+SSL - Secure Socket Layer
+
+SSL is required to enable https in a websites. Normally, SSL certificates are provided by organisations and are usually a paid commodity.
+
+Makecert:
+	For testing purposes, one can set up free SSL using makecert although the certificate will need to be trusted manually by the browser using the certificate.
+
+	1) Install & setup makecert
+		sudo apt install libnss3-tools
+		sudo apt install mkcert
+		mkcert -install
+	
+	2) Generate a pkf file
+		mkcert localhost
+
+	
+	
