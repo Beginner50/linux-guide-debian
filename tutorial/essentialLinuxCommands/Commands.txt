@@ -2,18 +2,21 @@
 			GENERAL COMMANDS
 
 
-cat - Cat prints the content of a file to stdout
-	It may also allow us to write text into a file
+1) cat - Cat prints the content of a file to stdout
+It may also allow us to write text into a file
 
-redirection operator(>) v/s pipe operator(|) -
-	The > operator allows us to change where the stdout goes to
-	The | operator redirects the stdout of a command to a program
+2) Redirection Operator(>) v/s Pipe Operator(|) -
+The > operator allows us to write stdout to a file
+The | operator redirects the stdout of a command to a program
 
-	E.g ls > dir.txt && grep Py < dir.txt
-	    is same as
-	    ls | grep Py
-	    except dir.txt is not created
+3) source ~/.bashrc
+Updates the current bash session to the configuration set in ~/.bashrc file
 
+4) chmod u+s script
+Allows script to execute under the privileges of the owner
+
+5) chown user file
+Changes the owner of the file to the user
 
 -------------------------------------------------------------------
 			Device Commands

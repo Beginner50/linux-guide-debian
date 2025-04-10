@@ -1,9 +1,15 @@
-Mysql set-up
-	See LAMPStackSetup.txt for setting up user auth & password
+# SETTING UP:
+Configuring superuser authorization
+  sudo apt install mysql-server
+  sudo mysql
+  ALTER USER 'root'@'localhost' IDENTIFIED BY '';
 
-1) Show databases in the system
-	SHOW DATABASES;
+Creating new user
+  CREATE USER 'user'@'localhost' IDENTIFIED BY ''; 
+  GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost';
+  FLUSH PRIVILEGES;
 
-2) Create a database
-	CREATE DATABASE [DBNAME];
+# ACCESSING TABLE METADATA
+  SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'my_table' AND COLUMN_NAME = 'my_column';
+  SELECT table_name, table_rows, data_length, index_length FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = 'my_database' AND table_name = 'my_table';
 

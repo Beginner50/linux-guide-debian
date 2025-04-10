@@ -20,30 +20,23 @@ LAMP stands for Linux, Apache, MySql, PHP
 	sudo ufw status
 
 5) Install mysql-server
-	sudo apt install mysql-server
+  Follow instructions on setting up mysql in applicationEssentials directory.
 
-6) Set up a password for the root user
-	sudo mysql 									// Enter mysql
-	ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY ' ';	// Sets up a password ' ' for root
-	
-7) Run mysql_secure_installation
-	sudo mysql_secure_installation
-
-8) Install PHP
+6) Install PHP
 	sudo apt install php libapache2-mod-php php-mysql
 
-9) Configure Apache
+7) Configure Apache
    The apache directory structure is different from httpd.conf file in XAMPP. Refer to apache docs for this but the
    core functionality remains the same as XAMPP.
 
    After saving changes, restart apache
 	sudo systemctl restart apache2
 
-10) Install some useful php extensions
+8) Install some useful php extensions
 	apt search php- | less  			// Lists php extensions
 	sudo apt install php-cli			// Install php interactive shell
 
-11) Configure a virtual host for your website
+9) Configure a virtual host for your website
     Virtual hosts allow hosting for more than one domain (website) from a single server.
     Whenever a website has an actual hostname and is hosted over the internet, Apache will look in the HTTP header
     sent by the packet on port 443/80 and determine which website the client is requesting.
@@ -73,7 +66,7 @@ LAMP stands for Linux, Apache, MySql, PHP
     Reload apache2
 	sudo systemctl reload apache2
 
-12) Enable SSL
+10) Enable SSL
 	1) First generate a self-signed certificate
 	   Do not that the website will still not be secure since certain web browsers do not trust self-signed certificates.
 	   Additionally, make sure that the servername is set to your server name or ip address
@@ -92,5 +85,5 @@ LAMP stands for Linux, Apache, MySql, PHP
 
 	4) Restart Apache
 
-13) Read more on https://www.digitalocean.com/community/tutorials/how-to-install-lamp-stack-on-ubuntu
+11) Read more on https://www.digitalocean.com/community/tutorials/how-to-install-lamp-stack-on-ubuntu
 
