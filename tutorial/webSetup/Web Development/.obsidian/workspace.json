@@ -1,0 +1,181 @@
+{
+  "main": {
+    "id": "4b55a7597ab1b772",
+    "type": "split",
+    "children": [
+      {
+        "id": "4ca750822bdf57ab",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1f7dae954cb66b0a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Networking Concepts/HTTP, HTTPS & TLS.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "HTTP, HTTPS & TLS"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1e03b892f66a90c4",
+    "type": "split",
+    "children": [
+      {
+        "id": "a6b7687bffb364f1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3caf1d709c9cbb2c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "b121967fb181a7d2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "9db8f2f21d598710",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "87afd5db10b9107c",
+    "type": "split",
+    "children": [
+      {
+        "id": "9a9fd72cb818020e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "825e2e52559bb042",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Web Development.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Web Development"
+            }
+          },
+          {
+            "id": "dc3ffeb8649c7798",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Web Development.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Web Development"
+            }
+          },
+          {
+            "id": "47c5912da5f8a362",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "0166adfb69ad7526",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Web Development.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Web Development"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "1f7dae954cb66b0a",
+  "lastOpenFiles": [
+    "Web Development.md",
+    "Networking Concepts/Symmetric, Asymmetric Encryption & Hashing.md",
+    "Networking Concepts/HTTP, HTTPS & TLS.md",
+    "Web Application Concepts/Browser Cache, CDN & Minimizing Network IO.md",
+    "Web Application Concepts/SEO, Web Crawlers & HTML Meta tags.md",
+    "Web Application Concepts/Web & Application Servers.md",
+    "Networking Concepts/TCP & IP.md",
+    "Web Application Concepts",
+    "Web Development Concepts/Symmetric & Asymmetric Encryption.md",
+    "Networking Concepts",
+    "TCP/IP.md",
+    "TCP"
+  ]
+}

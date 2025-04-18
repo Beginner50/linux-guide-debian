@@ -1,0 +1,6 @@
+To run a local LLM
+
+1) First install Ollama from the official website
+
+2) Look for the model you want to run and in my case, I want to run deepseek
+	ollama run deepseek
