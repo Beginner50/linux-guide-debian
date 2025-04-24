@@ -1,0 +1,80 @@
+Working With Laravel
+
+A - Setting Up
+-------------------------------------------------------------------------------
+1) Install Composer, Laravel & Other dependencies
+   Composer is a dependency management for laravel and php libraries
+
+	sudo apt install composer php-sqlite3 php-pdo
+	composer global require laravel/installer
+
+2) Add composer dependencies to path (Optional)
+	export $PATH="$PATH:$HOME/.config/composer/vendor/bin"
+
+3) Create a laravel project
+	composer create-project laravel/laravel --prefer-dist [projectName]
+	OR
+	laravel new [projectName]
+
+4) Change the database connection in .env file
+	(Note create another mysql instead of root)
+	php artisan config:clear
+
+5) Migrate previous database (Optional)
+	php artisan migrate
+
+5) Run the project
+	php artisan serve
+	OR
+	composer run dev
+
+B - ORM
+-------------------------------------------------------------------------------
+1) Create a model for the database with its migration
+	php artisan make:model [Model] -m
+
+2) After creating the model(s), run the migration
+	php artisan migrate
+
+3) Add a controller for the model
+	php artisan make:controller [Controller] [--resource (Optional)]
+
+   If the controller returns a view, make sure to create the corresponding view
+
+4) Include the controller in web.php, in Routes directory
+   If it is a resource controller, add the following route:
+	Route::resource("objects", ObjectController::class);
+
+5) To create nested objects, simply define a method on the foreign key(s) and
+   access them.
+
+   Ex: function dependentObjects(){
+	 return $this->hasMany(Object::class, "object_id");
+       }
+
+C - MVC
+-------------------------------------------------------------------------------
+1) As illustrated above, each controller can either be a normal, or resource
+   controller.
+
+   Resource controllers make it easier to build CRUD applications and consists
+   of the following methods:
+
+	index - Creates url, such as localhost/[objects] && 		Lists all objects of that resource
+	create - Creates the url, such as localhost/[objects]/create && Can be used to invoke a view to create resource
+	store - Gets called when an object is to be created (Actually creates resource)
+
+2) Controllers can also return redirects as shown
+	return redirect("/[objects]")->with(SESSION_VARIABLE, SESSION_VARIABLE_DATA);
+
+
+D - Sessions
+-------------------------------------------------------------------------------
+Laravel manages user sessions automatically
+
+1) To save contents for a form, add the following blade directive inside the form
+	@csrf
+
+   This directive (Cross-Site Request Forgery) creates a hidden-input field with a token for each user 
+   This prevents cross-site request forgery, where the attacker tricks a user into unknowingly perform
+   actions on a website they are already logged in.

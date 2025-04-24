@@ -1,0 +1,2 @@
+Recording software such as OBS requires proprietary codecs which can be installed:
+	sudo apt-get install ubuntu-restricted-extras
