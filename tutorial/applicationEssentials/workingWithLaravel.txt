@@ -28,6 +28,21 @@ A - Setting Up
 	OR
 	composer run dev
 
+
+A - Setting Up (Optional)
+-------------------------------------------------------------------------------
+1) For an existing project, simply run
+	composer install && composer update 
+
+2) Configure the config/database.php & composer.json files
+
+3) Copy the .env.example file to .env and generate the keys
+	php artisan key:generate
+
+3) Run the migrations
+	php artisan migrate
+
+
 B - ORM
 -------------------------------------------------------------------------------
 1) Create a model for the database with its migration
@@ -78,3 +93,11 @@ Laravel manages user sessions automatically
    This directive (Cross-Site Request Forgery) creates a hidden-input field with a token for each user 
    This prevents cross-site request forgery, where the attacker tricks a user into unknowingly perform
    actions on a website they are already logged in.
+
+E - Views
+-------------------------------------------------------------------------------
+1) To make a view
+	php artisan make:view [ViewName]
+
+2) Views can be broken down in a similar fashion to react components
+	php artisan make:component [ComponentName]
