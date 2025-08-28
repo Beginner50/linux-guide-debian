@@ -1,0 +1,7 @@
+Pre-requisites:
+- Familiar with terminal
+- Android Studio, npm installed
+- Proficient in javascript/typescript -> https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+Setting up React Native:
+
